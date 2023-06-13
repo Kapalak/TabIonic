@@ -1,0 +1,7 @@
+{
+  "name": "Kapalak",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
