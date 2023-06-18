@@ -35,8 +35,8 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Build Android Dev APK
-        run: ionic capacitor build android
+      #- name: Build Android Dev APK
+      #  run: ionic capacitor build android
 
       #- name: Build Android Release APK
       #  run: ionic capacitor build android --release --prod
@@ -48,13 +48,13 @@ jobs:
       - name: List files 
         run: |
           pwd
-          ls -R
+          ls -R ${{ github.workspace }}/android/app/build/outputs
           
-      #- name: Save release bundle as artifact
-      #  uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3
-      # with:
-      #    name: app-release
-      #    path: |
-      #      ${{ github.workspace }}/android/app/build/outputs/bundle/release/*.aab
-      #      ${{ github.workspace }}/android/app/build/outputs/apk/release/*.apk
+      - name: Save release bundle as artifact
+        uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3
+        with:
+          name: app-release
+          path: |
+            ${{ github.workspace }}/android/app/build/outputs/bundle/release/*.aab
+            ${{ github.workspace }}/android/app/build/outputs/apk/release/*.apk
 
