@@ -45,9 +45,17 @@ jobs:
         working-directory: ./android/
         run: ./gradlew bundle
 
-      - name: Generate the Android App Bundle
+      - name: Generate the Android App Bundle Release
         working-directory: ./android/
-        run: ./gradlew bundleRelease      
+        run: ./gradlew bundleRelease
+
+      - name: Generate the Debug Apk
+        working-directory: ./android/
+        run: ./gradlew assembleDebug
+        
+      - name: Generate the release Apk
+        working-directory: ./android/
+        run: ./gradlew assembleRelease
   
       - name: List files 
         run: |
